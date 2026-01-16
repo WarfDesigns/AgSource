@@ -1,25 +1,58 @@
 /* =========================
     Root + Global Styles
    ========================= */
+
+/* Theme tokens (Light default) */
 :root {
-    /*other accent colors: #043C17; #04541F;*/
-    accent-color:  #FDDE30;
+    /* Brand accents */
+    accent-color: #FDDE30;
+
+    /* Theme variables (Light) */
+    --bg: #FFFFFF;
+    --surface: #f9f9f9;
+    --text: #0f1a12;
+    --muted: rgba(15, 26, 18, 0.78);
+
+    --brand: #043C17;
+    --brand-2: #04541F;
+
+    --border: rgba(0,0,0,0.12);
+    --hover-bg: #efefef;
+    --hover-border: #0f1a12;
+
+    /* Keep your global settings */
     background-color: #043C17 !important;
     max-width: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
+/* DARK MODE (manual toggle uses html[data-theme="dark"]) */
+html[data-theme="dark"] {
+    --bg: #0b0f0c;
+    --surface: #101612;
+    --text: #f3f6f3;
+    --muted: rgba(243, 246, 243, 0.78);
+
+    --border: rgba(255,255,255,0.14);
+    --hover-bg: rgba(255,255,255,0.08);
+    --hover-border: rgba(253, 222, 48, 0.75);
 }
 
 body {
     border-color: black;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: var(--bg);
+    color: var(--text);
 }
+
+/* =========================
+    Navigation
+   ========================= */
 
 #nav {
     min-height: 60px;
-    border-bottom: 1px solid rgba(0,0,0,0.12);   
+    border-bottom: 1px solid var(--border);
 }
 
 #nav > ul {
@@ -28,41 +61,154 @@ body {
     align-items: center;
     height: 100%;
     list-style: none;
+
+    /* Prevent default UL spacing */
+    margin: 0;
+    padding: 0;
 }
 
-#nav >ul > li > a{
+#nav > ul > li > a{
     padding-left: 15px;
     padding-right: 15px;
     font-weight: 600;
     font-size: 16px;
-    color: #043C17 !important;
+    color: var(--brand) !important;
     cursor: pointer;
     text-decoration: none;
+
+    /* Reserve border space so hover doesn't shift layout */
+    border: 2px solid transparent;
+    box-sizing: border-box;
 }
 
 #nav > ul > li > a:hover {
-    color: #04541F !important;
+    color: var(--brand-2) !important;
     text-decoration: underline;
-    border:#0f1a12 2px solid;
-    background-color: #efefef;
-    font-size: 17px;
+    border: 2px solid var(--hover-border);
+    background-color: var(--hover-bg);
+
+    /* IMPORTANT: removing font-size bump prevents layout shifting */
+    /* font-size: 17px; */
 }
+
+/* =========================
+   Global Link Hover + Focus (Accessibility)
+   Applies to all <a> links EXCEPT #nav links
+   ========================= */
+
+/* Base link styling (outside nav only) */
+a:not(#nav a) {
+    color: var(--brand);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* Hover + keyboard focus styles for all links except nav */
+a:not(#nav a):hover,
+a:not(#nav a):focus-visible {
+    color: var(--brand-2);
+    text-decoration: underline;
+    background-color: var(--hover-bg);
+    border: 2px solid var(--hover-border);
+    border-radius: 6px;
+    padding: 2px 6px;
+    outline: none;
+}
+
+/* Keep focus visible even on dark backgrounds */
+a:not(#nav a):focus-visible {
+    box-shadow: 0 0 0 3px rgba(253, 222, 48, 0.55);
+}
+
+/* If you have links that look like buttons and shouldn't underline */
+a.no-underline:hover,
+a.no-underline:focus-visible {
+    text-decoration: none;
+}
+
+/* =========================
+   Theme Toggle Switch
+   (Use the HTML button with id="themeToggle" and class="theme-toggle")
+   ========================= */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    background: transparent;
+    border: 0;
+    padding: 6px 8px;
+    cursor: pointer;
+
+    color: var(--text);
+    font: inherit;
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid rgba(253, 222, 48, 0.55);
+    outline-offset: 4px;
+    border-radius: 10px;
+}
+
+.theme-toggle .toggle-track {
+    width: 48px;
+    height: 26px;
+    border-radius: 999px;
+    position: relative;
+
+    background: rgba(0,0,0,0.18);
+    border: 1px solid rgba(0,0,0,0.18);
+    transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.theme-toggle .toggle-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+
+    background: #ffffff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    transition: left 160ms ease;
+}
+
+/* ON state */
+.theme-toggle[aria-checked="true"] .toggle-track {
+    background: rgba(4, 84, 31, 0.55);
+    border-color: rgba(253, 222, 48, 0.55);
+}
+.theme-toggle[aria-checked="true"] .toggle-thumb {
+    left: 24px;
+}
+
+.theme-toggle .toggle-label {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* =========================
+    Misc
+   ========================= */
 
 .trusted-icon {
     font-size: 32px;
-    color: #043C17;
+    color: var(--brand);
     margin-right: 12px;
     text-align: right;
     display: flex;
 }
 
 footer {
-    border-top: 1px solid rgba(0,0,0,0.12);
+    border-top: 1px solid var(--border);
     padding: 24px 16px;
     text-align: center;
-    color: #0f1a12;
+    color: var(--text);
     font-size: 14px;
-    background-color: #f9f9f9;
+    background-color: var(--surface);
 }
 
 section {}
@@ -95,7 +241,7 @@ product-card {
     flex-direction: column;
     overflow: hidden;
     border-radius: 18px;
-    background: #ffffff;
+    background: var(--bg);
     border: 1px solid rgba(0,0,0,0.08);
     box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
@@ -123,14 +269,14 @@ product-image {
     display: block;
     aspect-ratio: 16 / 10;
     background:
-    radial-gradient(1200px 500px at 10% 10%, rgba(253, 222, 48, 0.28), transparent 60%),
-    radial-gradient(900px 400px at 90% 30%, rgba(4, 84, 31, 0.25), transparent 55%),
-    linear-gradient(135deg, rgba(4, 60, 23, 0.10), rgba(0,0,0,0.03));
+        radial-gradient(1200px 500px at 10% 10%, rgba(253, 222, 48, 0.28), transparent 60%),
+        radial-gradient(900px 400px at 90% 30%, rgba(4, 84, 31, 0.25), transparent 55%),
+        linear-gradient(135deg, rgba(4, 60, 23, 0.10), rgba(0,0,0,0.03));
     border-bottom: 1px solid rgba(0,0,0,0.06);
     position: relative;
 }
 
-/* Optional “badge” look (works even if you don’t add text) */
+/* Optional “badge” look */
 product-image::after {
     content: "AgSource";
     position: absolute;
@@ -140,10 +286,17 @@ product-image::after {
     font-size: 12px;
     letter-spacing: 0.6px;
     text-transform: uppercase;
-    color: #043C17;
+    color: var(--brand);
     background: rgba(255,255,255,0.78);
     border: 1px solid rgba(0,0,0,0.08);
     border-radius: 999px;
+}
+
+/* Dark mode tweak for badge readability */
+html[data-theme="dark"] product-image::after {
+    background: rgba(16, 22, 18, 0.78);
+    color: var(--text);
+    border-color: rgba(255,255,255,0.18);
 }
 
 /* Card content spacing */
@@ -159,25 +312,25 @@ product-title {
     font-weight: 800;
     font-size: 18px;
     line-height: 1.2;
-    color: #0f1a12;
+    color: var(--text);
 }
 
 /* Description */
 product-description {
-  margin: 10px 0 18px;
-  color: rgba(15, 26, 18, 0.78);
-  font-size: 14px;
-  line-height: 1.55;
+    margin: 10px 0 18px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
 }
 
 /* Optional “actions” row if you add links/buttons later */
 product-card a,
 product-card button {
-  margin: 0 18px 18px;
+    margin: 0 18px 18px;
 }
 
 /* Keyboard focus (if you later add links/buttons inside) */
 product-card:focus-within {
-  outline: 3px solid rgba(253, 222, 48, 0.55);
-  outline-offset: 3px;
+    outline: 3px solid rgba(253, 222, 48, 0.55);
+    outline-offset: 3px;
 }
