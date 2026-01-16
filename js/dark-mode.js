@@ -1,25 +1,43 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const key = "theme";
-  const btn = document.getElementById("themeToggle");
+const themeStorageKey = "theme";
+
+function getPreferredTheme() {
+  const saved = localStorage.getItem(themeStorageKey);
+  if (saved === "dark" || saved === "light") {
+    return saved;
+  }
+  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return systemDark ? "dark" : "light";
+}
+
+function applyTheme(theme, btn) {
+  document.documentElement.setAttribute("data-theme", theme);
   if (!btn) return;
 
   const label = btn.querySelector(".toggle-label");
+  const isDark = theme === "dark";
+  btn.setAttribute("aria-checked", isDark ? "true" : "false");
+  if (label) label.textContent = isDark ? "Light mode" : "Dark mode";
+}
 
-  function apply(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    const isDark = theme === "dark";
-    btn.setAttribute("aria-checked", isDark ? "true" : "false");
-    if (label) label.textContent = isDark ? "Light mode" : "Dark mode";
-  }
+function initThemeToggle() {
+  const btn = document.getElementById("themeToggle");
+  if (!btn || btn.dataset.themeBound === "true") return;
 
-  const saved = localStorage.getItem(key);
-  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  apply(saved || (systemDark ? "dark" : "light"));
+  btn.dataset.themeBound = "true";
+  const current = document.documentElement.getAttribute("data-theme") || getPreferredTheme();
+  applyTheme(current, btn);
 
   btn.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    const next = current === "dark" ? "light" : "dark";
-    localStorage.setItem(key, next);
-    apply(next);
+    const active = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const next = active === "dark" ? "light" : "dark";
+    localStorage.setItem(themeStorageKey, next);
+    applyTheme(next, btn);
   });
+}
+
+window.initThemeToggle = initThemeToggle;
+
+document.addEventListener("DOMContentLoaded", () => {
+  applyTheme(getPreferredTheme());
+  initThemeToggle();
 });

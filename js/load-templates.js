@@ -9,6 +9,9 @@ function loadTemplate(url, elementId) {
       const element = document.getElementById(elementId);
       if (element) {
         element.innerHTML = data;
+        if (elementId === "nav" && typeof window.initThemeToggle === "function") {
+          window.initThemeToggle();
+        }
       } else {
         console.warn(`Element with ID "${elementId}" not found.`);
       }

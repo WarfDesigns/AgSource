@@ -32,6 +32,8 @@ html[data-theme="dark"] {
     --surface: #101612;
     --text: #f3f6f3;
     --muted: rgba(243, 246, 243, 0.78);
+    --brand: #cfead6;
+    --brand-2: #9fe3b2;
 
     --border: rgba(255,255,255,0.14);
     --hover-bg: rgba(255,255,255,0.08);
@@ -175,6 +177,10 @@ a.no-underline:focus-visible {
     box-shadow: 0 6px 14px rgba(0,0,0,0.18);
     transition: left 160ms ease;
 }
+html[data-theme="dark"] .theme-toggle .toggle-track {
+    background: rgba(255,255,255,0.16);
+    border-color: rgba(255,255,255,0.2);
+}
 
 /* ON state */
 .theme-toggle[aria-checked="true"] .toggle-track {
@@ -242,7 +248,7 @@ product-card {
     overflow: hidden;
     border-radius: 18px;
     background: var(--bg);
-    border: 1px solid rgba(0,0,0,0.08);
+     border: 1px solid var(--border);
     box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     position: relative;
@@ -260,7 +266,7 @@ product-card::before {
 /* Hover effects */
 product-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(4, 84, 31, 0.35);
+    border-color: var(--hover-border);
     box-shadow: 0 18px 45px rgba(0,0,0,0.14);
 }
 
@@ -272,7 +278,7 @@ product-image {
         radial-gradient(1200px 500px at 10% 10%, rgba(253, 222, 48, 0.28), transparent 60%),
         radial-gradient(900px 400px at 90% 30%, rgba(4, 84, 31, 0.25), transparent 55%),
         linear-gradient(135deg, rgba(4, 60, 23, 0.10), rgba(0,0,0,0.03));
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--border);
     position: relative;
 }
 
