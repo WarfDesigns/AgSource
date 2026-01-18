@@ -80,6 +80,12 @@ img {
     gap: 12px;
     font-weight: 700;
     color: var(--brand);
+    
+}
+
+.logo-image {
+    max-height: 100px;
+    width: auto;
 }
 
 .logo-icon {
