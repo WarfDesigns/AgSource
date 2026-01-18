@@ -21,8 +21,11 @@ function loadTemplate(url, elementId) {
 
 // Load templates when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-  loadTemplate('/templates/menu.html', 'nav');
+  loadTemplate('/templates/menu.html', 'main-nav');
   loadTemplate('/templates/footer.html', 'footer');
   loadTemplate('/templates/header.html', 'header')
   loadTemplate('/templates/reviews.html', 'reviews');
 });
+
+//Add copyright year to footer
+document.getElementById('year').textContent = new Date().getFullYear();

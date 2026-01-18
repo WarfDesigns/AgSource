@@ -1,342 +1,508 @@
-/* =========================
-    Root + Global Styles
-   ========================= */
-
-/* Theme tokens (Light default) */
 :root {
-    /* Brand accents */
-    accent-color: #FDDE30;
-
-    /* Theme variables (Light) */
-    --bg: #FFFFFF;
-    --surface: #f9f9f9;
-    --text: #0f1a12;
-    --muted: rgba(15, 26, 18, 0.78);
-
-    --brand: #043C17;
-    --brand-2: #04541F;
-
-    --border: rgba(0,0,0,0.12);
-    --hover-bg: #efefef;
-    --hover-border: #0f1a12;
-
-    /* Keep your global settings */
-    background-color: #043C17 !important;
-    max-width: 100%;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color-scheme: light;
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --text: #1c1e1b;
+    --muted: #5c655a;
+    --brand: #1c4a2f;
+    --brand-dark: #133321;
+    --accent: #b5893a;
+    --accent-light: #f1e6d5;
+    --border: rgba(28, 30, 27, 0.12);
+    --shadow: 0 20px 45px rgba(22, 33, 22, 0.12);
 }
 
-/* DARK MODE (manual toggle uses html[data-theme="dark"]) */
-html[data-theme="dark"] {
-    --bg: #0b0f0c;
-    --surface: #101612;
-    --text: #f3f6f3;
-    --muted: rgba(243, 246, 243, 0.78);
-    --brand: #cfead6;
-    --brand-2: #9fe3b2;
-
-    --border: rgba(255,255,255,0.14);
-    --hover-bg: rgba(255,255,255,0.08);
-    --hover-border: rgba(253, 222, 48, 0.75);
-}
-
-body {
-    border-color: black;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-/* =========================
-    Navigation
-   ========================= */
-
-#nav {
-    min-height: 60px;
-    border-bottom: 1px solid var(--border);
-}
-
-#nav > ul {
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    list-style: none;
-
-    /* Prevent default UL spacing */
-    margin: 0;
-    padding: 0;
-}
-
-#nav > ul > li > a{
-    padding-left: 15px;
-    padding-right: 15px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--brand) !important;
-    cursor: pointer;
-    text-decoration: none;
-
-    /* Reserve border space so hover doesn't shift layout */
-    border: 2px solid transparent;
+* {
     box-sizing: border-box;
 }
 
-#nav > ul > li > a:hover {
-    color: var(--brand-2) !important;
-    text-decoration: underline;
-    border: 2px solid var(--hover-border);
-    background-color: var(--hover-bg);
-
-    /* IMPORTANT: removing font-size bump prevents layout shifting */
-    /* font-size: 17px; */
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
 }
 
-/* =========================
-   Global Link Hover + Focus (Accessibility)
-   Applies to all <a> links EXCEPT #nav links
-   ========================= */
-
-/* Base link styling (outside nav only) */
-a:not(#nav a) {
-    color: var(--brand);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-}
-
-/* Hover + keyboard focus styles for all links except nav */
-a:not(#nav a):hover,
-a:not(#nav a):focus-visible {
-    color: var(--brand-2);
-    text-decoration: underline;
-    background-color: var(--hover-bg);
-    border: 2px solid var(--hover-border);
-    border-radius: 6px;
-    padding: 2px 6px;
-    outline: none;
-}
-
-/* Keep focus visible even on dark backgrounds */
-a:not(#nav a):focus-visible {
-    box-shadow: 0 0 0 3px rgba(253, 222, 48, 0.55);
-}
-
-/* If you have links that look like buttons and shouldn't underline */
-a.no-underline:hover,
-a.no-underline:focus-visible {
+a {
+    color: inherit;
     text-decoration: none;
 }
 
-/* =========================
-   Theme Toggle Switch
-   (Use the HTML button with id="themeToggle" and class="theme-toggle")
-   ========================= */
-
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    background: transparent;
-    border: 0;
-    padding: 6px 8px;
-    cursor: pointer;
-
-    color: var(--text);
-    font: inherit;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-.theme-toggle:focus-visible {
-    outline: 3px solid rgba(253, 222, 48, 0.55);
-    outline-offset: 4px;
-    border-radius: 10px;
-}
-
-.theme-toggle .toggle-track {
-    width: 48px;
-    height: 26px;
-    border-radius: 999px;
-    position: relative;
-
-    background: rgba(0,0,0,0.18);
-    border: 1px solid rgba(0,0,0,0.18);
-    transition: background-color 160ms ease, border-color 160ms ease;
-}
-
-.theme-toggle .toggle-thumb {
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    position: absolute;
-    top: 50%;
-    left: 2px;
-    transform: translateY(-50%);
-
-    background: #ffffff;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    transition: left 160ms ease;
-}
-html[data-theme="dark"] .theme-toggle .toggle-track {
-    background: rgba(255,255,255,0.16);
-    border-color: rgba(255,255,255,0.2);
-}
-
-/* ON state */
-.theme-toggle[aria-checked="true"] .toggle-track {
-    background: rgba(4, 84, 31, 0.55);
-    border-color: rgba(253, 222, 48, 0.55);
-}
-.theme-toggle[aria-checked="true"] .toggle-thumb {
-    left: 24px;
-}
-
-.theme-toggle .toggle-label {
-    font-weight: 700;
-    font-size: 14px;
-}
-
-/* =========================
-    Misc
-   ========================= */
-
-.trusted-icon {
-    font-size: 32px;
-    color: var(--brand);
-    margin-right: 12px;
-    text-align: right;
-    display: flex;
-}
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 24px 16px;
-    text-align: center;
-    color: var(--text);
-    font-size: 14px;
-    background-color: var(--surface);
-}
-
-section {}
-
-/* =========================
-    Product Cards (AgSource)
-   ========================= */
-
-/* Layout for the product grid */
-products {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    padding: 32px 16px;
-    max-width: 1200px;
+.container {
+    width: min(1100px, 92vw);
     margin: 0 auto;
 }
 
-/* Responsive columns */
-@media (max-width: 980px) {
-    products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 640px) {
-    products { grid-template-columns: 1fr; }
+.top-bar {
+    background: var(--brand-dark);
+    color: #f8f6f1;
+    font-size: 0.95rem;
 }
 
-/* Individual card */
-product-card {
+.top-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0.7rem 0;
+}
+
+.top-bar-link {
+    color: #f8f6f1;
+    font-weight: 600;
+}
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 1.2rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--brand);
+}
+
+.logo-icon {
+    font-size: 1.6rem;
+}
+
+.logo-text-wrap {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    border-radius: 18px;
-    background: var(--bg);
-     border: 1px solid var(--border);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-    position: relative;
+    line-height: 1;
 }
 
-/* Subtle top accent bar */
-product-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 6px;
-    background: linear-gradient(90deg, #043C17, #04541F, #FDDE30);
+.logo-text-main {
+    font-size: 1.2rem;
 }
 
-/* Hover effects */
-product-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--hover-border);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.14);
-}
-
-/* Image area (placeholder-friendly) */
-product-image {
-    display: block;
-    aspect-ratio: 16 / 10;
-    background:
-        radial-gradient(1200px 500px at 10% 10%, rgba(253, 222, 48, 0.28), transparent 60%),
-        radial-gradient(900px 400px at 90% 30%, rgba(4, 84, 31, 0.25), transparent 55%),
-        linear-gradient(135deg, rgba(4, 60, 23, 0.10), rgba(0,0,0,0.03));
-    border-bottom: 1px solid var(--border);
-    position: relative;
-}
-
-/* Optional “badge” look */
-product-image::after {
-    content: "AgSource";
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    padding: 8px 10px;
-    font-size: 12px;
-    letter-spacing: 0.6px;
+.logo-text-sub {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--brand);
-    background: rgba(255,255,255,0.78);
-    border: 1px solid rgba(0,0,0,0.08);
-    border-radius: 999px;
-}
-
-/* Dark mode tweak for badge readability */
-html[data-theme="dark"] product-image::after {
-    background: rgba(16, 22, 18, 0.78);
-    color: var(--text);
-    border-color: rgba(255,255,255,0.18);
-}
-
-/* Card content spacing */
-product-title,
-product-description {
-    display: block;
-    padding: 0 18px;
-}
-
-/* Title */
-product-title {
-    margin-top: 18px;
-    font-weight: 800;
-    font-size: 18px;
-    line-height: 1.2;
-    color: var(--text);
-}
-
-/* Description */
-product-description {
-    margin: 10px 0 18px;
     color: var(--muted);
-    font-size: 14px;
-    line-height: 1.55;
 }
 
-/* Optional “actions” row if you add links/buttons later */
-product-card a,
-product-card button {
-    margin: 0 18px 18px;
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-weight: 500;
+    color: var(--muted);
 }
 
-/* Keyboard focus (if you later add links/buttons inside) */
-product-card:focus-within {
-    outline: 3px solid rgba(253, 222, 48, 0.55);
-    outline-offset: 3px;
+.nav a {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+    color: var(--brand);
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--brand);
+}
+
+.nav-toggle-bar + .nav-toggle-bar {
+    margin-top: 5px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--brand);
+    color: #fff;
+    box-shadow: 0 12px 20px rgba(19, 51, 33, 0.2);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background: var(--brand-dark);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    border-color: var(--brand);
+    color: var(--brand);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+    background: var(--brand);
+    color: #fff;
+}
+
+.btn-ghost {
+    border-color: transparent;
+    color: #fff;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.hero {
+    position: relative;
+    background: linear-gradient(130deg, #173624, #2f5b3a 55%, #4a6d3b);
+    color: #fff;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(17, 39, 26, 0.9), rgba(17, 39, 26, 0.6));
+}
+
+.hero-inner {
+    position: relative;
+    padding: 5.5rem 0 5rem;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero h1 {
+    font-size: clamp(2.3rem, 4vw, 3.4rem);
+    margin: 0 0 1rem;
+    line-height: 1.1;
+}
+
+.hero-text {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 2.4rem;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 16px;
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+}
+
+.stat-number {
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.section {
+    padding: 4.5rem 0;
+}
+
+.section-light {
+    background: var(--bg);
+}
+
+.section-alt {
+    background: var(--surface);
+}
+
+.section-header {
+    max-width: 620px;
+    margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+    margin: 0 0 0.8rem;
+    font-size: 2rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--brand);
+}
+
+.card-list {
+    padding-left: 1.1rem;
+    color: var(--muted);
+}
+
+.split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    align-items: center;
+}
+
+.split-text h2 {
+    margin-top: 0;
+}
+
+.pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.pill {
+    background: var(--accent-light);
+    color: var(--brand-dark);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.split-box {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.steps {
+    padding-left: 1.2rem;
+    margin: 1rem 0 0;
+    color: var(--muted);
+}
+
+.about-box {
+    background: var(--brand);
+    color: #fff;
+}
+
+.quote {
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+}
+
+.quote-name {
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.85;
+}
+
+.testimonial {
+    text-align: center;
+    max-width: 750px;
+}
+
+.testimonial-text {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.testimonial-name {
+    color: var(--muted);
+    margin: 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.contact-form {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 1rem;
+}
+
+input,
+textarea {
+    padding: 0.7rem 0.9rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    font: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid rgba(28, 74, 47, 0.25);
+    border-color: var(--brand);
+}
+
+.form-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 1rem;
+}
+
+.contact-side {
+    display: grid;
+    gap: 16px;
+}
+
+.contact-card {
+    background: var(--surface);
+    padding: 1.4rem 1.6rem;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
+
+.site-footer {
+    background: var(--brand-dark);
+    color: #fff;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 0;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-links a {
+    color: #fff;
+    font-weight: 600;
+}
+
+@media (max-width: 960px) {
+    .header-inner {
+        grid-template-columns: auto auto;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        justify-self: end;
+    }
+
+    .header-cta {
+        display: none;
+    }
+
+    body.nav-open .nav {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        right: 4vw;
+        background: var(--surface);
+        flex-direction: column;
+        gap: 12px;
+        padding: 1rem 1.2rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+    }
+}
+
+@media (max-width: 720px) {
+    .top-bar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-inner {
+        padding-top: 4rem;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
