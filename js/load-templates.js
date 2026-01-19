@@ -12,7 +12,12 @@ function loadTemplate(url, elementId) {
                 if (elementId === "main-nav" && typeof window.initThemeToggle === "function") {
           window.initThemeToggle();
         }
-      } else {
+      } else {        if (elementId === "footer") {
+          const yearSpan = element.querySelector("#year");
+          if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+          }
+        }
         console.warn(`Element with ID "${elementId}" not found.`);
       }
     })
