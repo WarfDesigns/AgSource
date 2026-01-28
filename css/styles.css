@@ -273,6 +273,7 @@ img {
     position: relative;
     background: linear-gradient(130deg, #173624, #2f5b3a 55%, #4a6d3b);
     color: #fff;
+    background-image: url('\img\farm\2024-08-08 16-49-27.webp');
 }
 
 .hero-overlay {
