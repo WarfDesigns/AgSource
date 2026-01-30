@@ -434,6 +434,7 @@ media-card {
     box-shadow: var(--shadow);
     overflow: hidden;
     margin: 0;
+    
 }
 
 .media-card img {
@@ -441,6 +442,9 @@ media-card {
     height: 100%;
     display: block;
     object-fit: cover;
+    border: 6px solid #fff;
+    box-shadow: 0 2px 22px rgba(15, 23, 42, 0.35);
+    border-radius: 7px;
 }
 
 .media-card figcaption {
@@ -462,8 +466,8 @@ media-card {
 .split-media img {
     min-height: 320px;
     border: 6px solid #fff;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
-    border-radius: 18px;
+    box-shadow: 0 2px 22px rgba(15, 23, 42, 0.35);
+    border-radius: 7px;
 }
 
 
