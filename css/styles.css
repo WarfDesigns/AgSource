@@ -60,6 +60,11 @@ img {
     margin: 0 auto;
 }
 
+.contact-main {
+    display: grid;
+    gap: 16px;
+}
+
 .top-bar {
     background: var(--brand-dark);
     color: #f8f6f1;
@@ -460,9 +465,10 @@ img {
 }
 
 .media-card figcaption {
-    padding: 0;
+    padding: 0 1rem 1rem;
     font-size: 0.95rem;
     color: var(--muted);
+    text-align: center;
 }
 
 .image-grid {
@@ -526,6 +532,11 @@ img {
     align-items: start;
 }
 
+.contact-main {
+    display: grid;
+    gap: 16px;
+}
+
 .contact-form {
     background: var(--surface);
     padding: 2rem;
@@ -570,6 +581,12 @@ textarea:focus {
 .contact-side {
     display: grid;
     gap: 16px;
+}
+
+.contact-card-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .contact-card {
