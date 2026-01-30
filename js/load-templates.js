@@ -9,8 +9,13 @@ function loadTemplate(url, elementId) {
       const element = document.getElementById(elementId);
       if (element) {
         element.innerHTML = data;
-                if (elementId === "main-nav" && typeof window.initThemeToggle === "function") {
-          window.initThemeToggle();
+        if (elementId === "main-nav") {
+          if (typeof window.initThemeToggle === "function") {
+            window.initThemeToggle();
+          }
+          if (typeof window.initNavToggle === "function") {
+            window.initNavToggle();
+          }
         }
       } else {        if (elementId === "footer") {
           const yearSpan = element.querySelector("#year");
