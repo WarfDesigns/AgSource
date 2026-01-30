@@ -461,6 +461,9 @@ media-card {
 
 .split-media img {
     min-height: 320px;
+    border: 6px solid #fff;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
+    border-radius: 18px;
 }
 
 
