@@ -15,7 +15,8 @@
 
   window.initNavToggle = () => {
     const toggle = document.querySelector(".nav-toggle");
-    const nav = document.getElementById("main-nav");
+    const nav = document.getElementById("main-nav")
+    const closeButton = nav?.querySelector(".nav-close");
     const body = document.body;
 
     if (!toggle || !nav || toggle.dataset.navBound === "true") {
@@ -38,7 +39,11 @@
         closeNav(toggle, body);
       }
     });
-
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        closeNav(toggle, body);
+      });
+    }
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         closeNav(toggle, body);

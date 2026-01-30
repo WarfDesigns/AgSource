@@ -237,6 +237,22 @@ img {
     margin-top: 0;
 }
 
+.nav-close {
+    display: none;
+    align-self: flex-end;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--brand);
+    cursor: pointer;
+}
+
+.nav-close:focus-visible {
+    outline: 2px solid rgba(28, 74, 47, 0.3);
+    outline-offset: 3px;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -703,6 +719,10 @@ textarea:focus {
         box-shadow: var(--shadow);
     }
 
+   body.nav-open .nav .nav-close {
+        display: inline-flex;
+    }
+
     body.nav-open .nav ul {
         flex-direction: column;
         align-items: flex-start;
@@ -735,6 +755,16 @@ textarea:focus {
         gap: 24px;
         z-index: 1000;
     }
+
+        body.nav-open .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1101;
+        background: var(--surface);
+    }
+
 
     body.nav-open .nav ul {
         width: 100%;
