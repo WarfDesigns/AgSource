@@ -220,38 +220,40 @@
                 </div>
 
                 <div class="contact-grid">
-                    <form class="contact-form">
+                                       <form class="contact-form" action="/contact-form.php" method="post">
                         <div class="form-row">
                             <div class="form-field">
                                 <label for="name">Name</label>
-                                <input type="text" id="name" placeholder="Your full name">
+                                <input type="text" id="name" name="name" placeholder="Your full name" required>
                             </div>
                             <div class="form-field">
                                 <label for="farm-name">Farm Name</label>
-                                <input type="text" id="farm-name" placeholder="Family farm or operation">
+                                <input type="text" id="farm-name" name="farm_name" placeholder="Family farm or operation">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-field">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="name@example.com">
+                                <input type="email" id="email" name="email" placeholder="name@example.com" required>
                             </div>
                             <div class="form-field">
                                 <label for="phone">Phone</label>
-                                <input type="tel" id="phone" placeholder="(555) 555-5555">
+                                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
                             </div>
                         </div>
 
                         <div class="form-field">
                             <label for="acres">Approximate Acres</label>
-                            <input type="number" id="acres" placeholder="e.g. 500">
+                            <input type="number" id="acres" name="acres" placeholder="e.g. 500">
                         </div>
 
                         <div class="form-field">
                             <label for="message">How can we help?</label>
-                            <textarea id="message" rows="4" placeholder="Tell us about your farm and what you’re looking for."></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your farm and what you’re looking for."></textarea>
                         </div>
+                        <input type="hidden" name="form_source" value="homepage">
+                        <input type="text" name="company" autocomplete="off" tabindex="-1" aria-hidden="true" style="display:none">
 
                         <button type="submit" class="btn btn-primary btn-block">
                             Submit Request
