@@ -16,7 +16,7 @@ function applyTheme(theme, btn) {
   const label = btn.querySelector(".toggle-label");
   const isDark = theme === "dark";
   btn.setAttribute("aria-checked", isDark ? "true" : "false");
-  if (label) label.textContent = isDark ? "Light mode" : "Dark mode";
+  if (label) label.textContent = isDark ? "Dark mode" : "Light mode";
 }
 
 function initThemeToggle() {

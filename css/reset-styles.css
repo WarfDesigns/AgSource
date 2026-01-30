@@ -419,6 +419,11 @@ img {
     font-weight: 600;
 }
 
+[data-theme="dark"] .pill {
+    background: var(--accent);
+    color: var(--brand-dark);
+}
+
 .split-box {
     background: var(--surface);
     padding: 2rem;

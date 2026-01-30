@@ -435,6 +435,11 @@ img {
     font-weight: 600;
 }
 
+[data-theme="dark"] .pill {
+    background: var(--accent);
+    color: var(--brand-dark);
+}
+
 .split-box {
     background: var(--surface);
     padding: 2rem;
@@ -576,6 +581,21 @@ textarea:focus {
     font-size: 0.85rem;
     color: var(--muted);
     margin-top: 1rem;
+}
+
+.form-submit-notice {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    border: 1px solid rgba(28, 74, 47, 0.2);
+    background: rgba(28, 74, 47, 0.08);
+    color: var(--brand-dark);
+    font-weight: 500;
+}
+
+.form-submit-notice.is-visible {
+    display: block;
 }
 
 .contact-side {
