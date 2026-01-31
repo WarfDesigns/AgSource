@@ -33,8 +33,9 @@ function loadTemplate(url, elementId) {
 document.addEventListener("DOMContentLoaded", () => {
   loadTemplate('/templates/menu.html', 'main-nav');
   loadTemplate('/templates/footer.html', 'footer');
-  loadTemplate('/templates/header.html', 'header')
+  loadTemplate('/templates/header.html', 'header');
   loadTemplate('/templates/reviews.html', 'reviews');
+  loadTemplate('/templates/top-bar.html', 'top-bar');
 });
 
 //Add copyright year to footer
