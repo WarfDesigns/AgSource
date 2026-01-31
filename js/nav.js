@@ -35,15 +35,14 @@
     });
 
     nav.addEventListener("click", (event) => {
+      if (event.target.closest(".nav-close")) {event.preventDefault();
+        closeNav(toggle, body);
+        return;
+      }
       if (event.target.closest("a")) {
         closeNav(toggle, body);
       }
     });
-    if (closeButton) {
-      closeButton.addEventListener("click", () => {
-        closeNav(toggle, body);
-      });
-    }
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         closeNav(toggle, body);
