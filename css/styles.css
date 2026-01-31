@@ -511,6 +511,32 @@ img {
     border-top-right-radius: 7px;
 }
 
+.news-split {
+    align-items: start;
+}
+
+.facebook-embed {
+    background: var(--surface);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.facebook-embed iframe {
+    width: 100%;
+    min-height: 560px;
+    border-radius: 16px;
+}
+
+.embed-note {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
 
 .steps {
     padding-left: 1.2rem;
