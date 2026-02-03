@@ -6,33 +6,81 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 342 >>
+<< /Length 1638 >>
 stream
-BT /F1 22 Tf 72 720 Td (Harvest Readiness Checklist) Tj
-0 -32 Td (Check moisture levels and dry-down progress.) Tj
-0 -22 Td (Schedule equipment maintenance and cleanouts.) Tj
-0 -22 Td (Coordinate grain storage and hauling logistics.) Tj
-0 -22 Td (Review yield goals and data capture plan.) Tj
-0 -22 Td (Book post-harvest soil sampling.) Tj
+0.95 0.94 0.90 rg 0 0 612 792 re f
+0.10980392156862745 0.2901960784313726 0.1843137254901961 rg 0 682 612 110 re f
+0.7098039215686275 0.5372549019607843 0.22745098039215686 rg 0 672 612 10 re f
+BT
+/F2 24 Tf
+1 1 1 rg
+48 722 Td (Harvest Readiness Checklist) Tj
+/F1 12 Tf
+0 -24 Td (Finish the season strong with a clear plan.) Tj
+ET
+BT
+/F2 14 Tf
+0.07450980392156863 0.2 0.12941176470588237 rg
+48 632 Td (Keep crews aligned) Tj
+ET
+BT
+/F1 11 Tf
+0.3607843137254902 0.396078431372549 0.35294117647058826 rg
+48 614 Td (A pre-harvest plan keeps logistics, storage, and equipment on track.) Tj
+ET
+BT
+/F2 14 Tf
+0.07450980392156863 0.2 0.12941176470588237 rg
+48 590 Td (Best timing) Tj
+ET
+BT
+/F1 11 Tf
+0.3607843137254902 0.396078431372549 0.35294117647058826 rg
+48 572 Td (Finalize two to three weeks before expected harvest.) Tj
+ET
+0.9450980392156862 0.9019607843137255 0.8352941176470589 rg 48 338 516 220 re f
+0.07450980392156863 0.2 0.12941176470588237 rg 48 338 516 220 re S
+BT
+/F2 13 Tf
+0.07450980392156863 0.2 0.12941176470588237 rg
+64 536 Td (Checklist) Tj
+ET
+BT
+/F1 11 Tf
+0.10980392156862745 0.11764705882352941 0.10588235294117647 rg
+68 514 Td ( Check moisture levels and dry-down progress across fields.) Tj
+68 496 Td ( Schedule equipment maintenance, calibrations, and cleanouts.) Tj
+68 478 Td ( Coordinate storage, hauling logistics, and labor coverage.) Tj
+68 460 Td ( Review yield goals and data capture plans for analysis.) Tj
+68 442 Td ( Book post-harvest soil sampling and residue strategy.) Tj
+ET
+BT
+/F1 9 Tf
+0.3607843137254902 0.396078431372549 0.35294117647058826 rg
+48 40 Td (Ag Source LLC | agsource.com | (555) 123-4567) Tj
 ET
 endstream
 endobj
 5 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
 xref
-0 6
+0 7
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000241 00000 n 
-0000000634 00000 n 
+0000000251 00000 n 
+0000001941 00000 n 
+0000002011 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 7 /Root 1 0 R >>
 startxref
-704
+2086
 %%EOF
