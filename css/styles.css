@@ -890,10 +890,9 @@ textarea:focus {
         padding-top: 4rem;
     }
 
-    .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+
+    
+    
      body.nav-open .nav {
         position: fixed;
         inset: 0;
@@ -931,6 +930,32 @@ textarea:focus {
         padding: 0.9rem 0;
         font-size: 1.1rem;
     }
+
+
+@media (max-width: 600px) {
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.2rem 0;
+        gap: 10px;
+    }
+
+    .footer-copy {
+        flex: 0 0 auto;
+    }
+
+    .footer-links {
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .footer-icons {
+        width: 100%;
+    }
+}
 
     body.nav-open .theme-toggle {
         width: 100%;
