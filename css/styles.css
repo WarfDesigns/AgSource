@@ -620,6 +620,10 @@ img {
     font-weight: 600;
 }
 
+[data-theme="dark"] .map-label {
+    fill: #ffffff;
+}
+
 .map-key {
     display: inline-flex;
     align-items: center;
