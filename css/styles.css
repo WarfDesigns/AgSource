@@ -248,6 +248,13 @@ img {
     cursor: pointer;
 }
 
+.nav-logo {
+    display: none;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+}
+
+
 .nav-close:focus-visible {
     outline: 2px solid rgba(28, 74, 47, 0.3);
     outline-offset: 3px;
@@ -748,6 +755,11 @@ textarea:focus {
    body.nav-open .nav .nav-close {
         display: inline-flex;
     }
+
+    body.nav-open .nav .nav-logo {
+        display: flex;
+    }
+
 
     body.nav-open .nav ul {
         flex-direction: column;
