@@ -30,8 +30,34 @@ function loadTemplate(url, elementId) {
 }
 
 // Load templates when the DOM is fully loaded
+function loadResponsiveMenu() {
+  const menuBreakpoint = 960;
+  const menuQuery = window.matchMedia(`(max-width: ${menuBreakpoint}px)`);
+
+  const getMenuUrl = () =>
+    menuQuery.matches ? "/templates/mobile-menu.html" : "/templates/menu.html";
+
+  const loadMenuIfNeeded = () => {
+    const nav = document.getElementById("main-nav");
+    const nextUrl = getMenuUrl();
+
+    if (nav && nav.dataset.menuTemplate === nextUrl) {
+      return;
+    }
+
+    if (nav) {
+      nav.dataset.menuTemplate = nextUrl;
+    }
+
+    loadTemplate(nextUrl, "main-nav");
+  };
+
+  loadMenuIfNeeded();
+  menuQuery.addEventListener("change", loadMenuIfNeeded);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  loadTemplate('/templates/menu.html', 'main-nav');
+  loadResponsiveMenu();
   loadTemplate('/templates/footer.html', 'footer');
   loadTemplate('/templates/header.html', 'header');
   loadTemplate('/templates/reviews.html', 'reviews');

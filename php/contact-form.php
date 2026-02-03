@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 // TODO: Update these values to match your hosting.com reseller account and destination inbox.
-$recipientEmail = 'hello@agsource.com';
-$fromEmail = 'no-reply@agsource.com';
+$recipientEmail = 'agsource@yahoo.com';
+$fromEmail = 'agsource@yahoo.com';
 $fromName = 'Ag Source Website';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
