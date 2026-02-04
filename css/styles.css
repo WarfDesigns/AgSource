@@ -374,6 +374,7 @@ img {
     background: rgba(255, 255, 255, 0.12);
     padding: 1rem 1.2rem;
     border-radius: 16px;
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
