@@ -425,6 +425,16 @@ img {
     box-shadow: var(--shadow);
 }
 
+.team-profile-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    background: var(--accent-light);
+}
+
 .card h3 {
     margin-top: 0;
     color: var(--brand);
