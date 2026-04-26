@@ -424,6 +424,11 @@ img {
     border-radius: 10px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
+    padding: 2rem;
+}
+
+.card-media {
+    padding: 0;
 }
 
 .team-profile-photo {
@@ -442,6 +447,11 @@ img {
     display: flex;
     justify-content: center;
     padding-top: 20px;
+}
+
+.card-media h3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .team-profile {
