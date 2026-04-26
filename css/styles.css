@@ -11,6 +11,7 @@
     --border: rgba(28, 30, 27, 0.12);
     --shadow: 0 20px 45px rgba(22, 33, 22, 0.12);
     --text-shadow-on-brand: 0 2px 8px rgba(0, 0, 0, 0.55);
+    --service-area-image-filter: none;
 }
 
 [data-theme="dark"] {
@@ -25,6 +26,7 @@
     --accent-light: #27312b;
     --border: rgba(241, 243, 238, 0.15);
     --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    --service-area-image-filter: brightness(0) saturate(100%) invert(88%);
 }
 
 
@@ -625,6 +627,10 @@ img {
     max-width: 520px;
     height: auto;
     border-radius: var(--radius-md);
+}
+.service-area-image {
+    filter: var(--service-area-image-filter);
+    transition: filter 0.2s ease;
 }
 .map-label {
     font-size: 0.8rem;
