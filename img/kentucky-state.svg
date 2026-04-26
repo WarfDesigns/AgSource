@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">State of Kentucky</title>
+  <desc id="desc">Stylized illustration of the Kentucky state outline.</desc>
+  <defs>
+    <linearGradient id="kyFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e6f2eb"/>
+      <stop offset="100%" stop-color="#cde3d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="420" fill="none"/>
+  <path d="M40 255 L78 232 L112 238 L145 224 L182 228 L214 216 L252 224 L290 214 L326 220 L366 210 L402 216 L438 204 L475 210 L510 198 L548 205 L584 190 L626 195 L662 181 L707 190 L742 176 L780 183 L818 170 L854 176 L866 195 L848 209 L812 211 L780 226 L744 221 L708 237 L670 230 L636 244 L598 238 L562 252 L522 244 L486 258 L450 252 L413 267 L374 259 L338 273 L302 266 L266 279 L228 273 L192 287 L154 279 L120 291 L82 283 L54 292 L34 278 Z"
+        fill="url(#kyFill)" stroke="#1c4a2f" stroke-width="10" stroke-linejoin="round"/>
+</svg>

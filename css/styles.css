@@ -620,11 +620,12 @@ img {
     justify-items: center;
 }
 
-.service-area-map svg {
+.service-area-map img {
     width: 100%;
-    max-width: 420px;
+    max-width: 520px;
+    height: auto;
+    border-radius: var(--radius-md);
 }
-
 .map-label {
     font-size: 0.8rem;
     fill: var(--brand-dark);
