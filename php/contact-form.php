@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 // TODO: Update these values to match your hosting.com reseller account and destination inbox.
-$recipientEmail = 'agsource@yahoo.com';
+$recipientEmail = 'brent@warfdesigns.com';
 $fromEmail = 'agsource@yahoo.com';
 $fromName = 'Ag Source Website';
 
@@ -72,4 +72,4 @@ if (!$sent) {
     exit;
 }
 
-echo 'Thank you! Your message has been sent.';
+echo 'Thanks for reaching out! We’re glad to walk the field with you—our team will be in touch soon.';
